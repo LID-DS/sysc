@@ -1,0 +1,39 @@
+.TH "SYSCCTL" "8" "JUN 2019" "Dennis Kreussel" ""
+.
+.SH "NAME"
+\fBsyscctl\fR
+.
+.SH "NAME"
+sysc \- Control the Sysc block device kernel module\.
+.
+.SH "SYNOPSIS"
+\fBsyscctl <sub\-command> [<args>]\fR
+.
+.SH "DESCRIPTION"
+\fBsyscctl\fR is the userspace tool used to manage the sysc kernel module\. It provides an interface to configure the start or stop recording of system calls, as well as configure parameters or filters of the recording.\.
+.
+.SH "OPTIONS"
+.
+.nf
+
+\-c cache\-size
+     Specify how big the in\-memory data cache can grow to (in MB)\. Defaults to 300 MB\.
+.
+.fi
+.
+.SH "SUB\-COMMANDS"
+.
+.SS "setup\-snapshot"
+\fBdbdctl setup\-snapshot [\-c <cache size>] [\-f <fallocate>] <block device> <cow file path> <minor>\fR
+.
+.P
+Sets up a snapshot of \fB<block device>\fR, saving all COW data to \fB<cow file path>\fR\. The snapshot device will be \fB/dev/datto<minor>\fR\. The minor number will be used as a reference number for all other \fBdbdctl\fR commands\. \fB<cow file path>\fR must be a path on the \fB<block device>\fR\.
+.SH "Bugs"
+.
+.SH "Author"
+.
+.nf
+
+Dennis Kreussel (dnk0@protonmail\.com)
+.
+.fi
